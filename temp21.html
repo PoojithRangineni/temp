@@ -231,15 +231,21 @@
       <div class="row">
         <div class="radioClass">
           <div><label> Movies</label></div>
-          <div><input type="checkbox"/></div>
+          <div><input type="checkbox"${
+            I === "Movies" && "checked"
+          }/></div>
         </div>
         <div class="radioClass">
           <div><label> Music</label></div>
-          <div><input type="checkbox"/></div>
+          <div><input type="checkbox" ${
+            I === "Music" && "checked"
+          }/></div>
         </div>
         <div class="radioClass">
           <div><label>Sports</label></div>
-          <div><input type="checkbox" /></div>
+          <div><input type="checkbox"${
+            I === "Sports" && "checked"
+          } /></div>
         </div>
       </div>
 
