@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="assets/images/ball.png" width="100px" id="ball" />
+    <img src="assets/images/bucket.jpg" width="100px" id="bucket" />
+    <script>
+      bucket.style.position = "absolute";
+      ball.style.position = "absolute";
+      let b = document.body;
+      let left = 0;
+      let down = 400;
+    
+    let score = 0;
+    let scoreDisplay = document.createElement("div");
+    scoreDisplay.style.position = "absolute";
+    scoreDisplay.style.top = "10px";
+    scoreDisplay.style.left = "10px";
+    scoreDisplay.style.fontSize = "20px";
+    scoreDisplay.innerText = "Score: " + score;
+    document.body.appendChild(scoreDisplay);
+
+    function checkCollision() {
+      let ballRect = ball.getBoundingClientRect();
+      let bucketRect = bucket.getBoundingClientRect();
+      if (
+        ballRect.bottom >= bucketRect.top &&
+        ballRect.top <= bucketRect.bottom &&
+        ballRect.right >= bucketRect.left &&
+        ballRect.left <= bucketRect.right
+      ) {
+        score++;
+        scoreDisplay.innerText = "Score: " + score;
+        t = 0;
+        l = Math.random() * 500;
+      }
+    }
+
+    setInterval(checkCollision, 10);
+      bucket.style.left = left + "px";
+      bucket.style.top = down + "px";
+      b.onkeydown = (e) => {
+        if (e.key == "ArrowRight") left += 5;
+        if (e.key == "ArrowDown") down += 5;
+        if (e.key == "ArrowLeft") left -= 5;
+        if (e.key == "ArrowUp") down -= 5;
+        bucket.style.left = left + "px";
+        bucket.style.top = down + "px";
+      };
+      let t = 0;
+      let l = 0
+      function ballFall() {
+        t++;
+        if (t > 400) {
+          t = 1;
+          l = Math.random() * 500;
+        }
+        ball.style.top = t + "px";
+        ball.style.left = l + "px";
+        setTimeout(ballFall, 10);
+      }
+      ballFall();
+
+
+    </script>
+  </body>
+</html>
