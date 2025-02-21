@@ -227,8 +227,31 @@
       </select>
      </div>
 
+
+     <div class="row" style="justify-content: start">
+        <div class="leftCaption">
+          Intrests 
+        </div>
+      </div>
+
+
       <div class="row">
-        <input type="text" value='${email}' id="email" placeholder="Mobule number or email address" />
+        <div class="radioClass">
+          <input type="checkbox" id="movies" name="movies" value="movies">
+          <label for="movies">Movies</label>
+        </div>
+        <div class="radioClass">
+          <input type="checkbox" id="sports" name="sports" value="sports">
+          <label for="movies">sports</label>
+        </div>
+        <div class="radioClass">
+          <input type="checkbox" id="music" name="music" value="music">
+          <label for="movies">music</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <input type="text" value='${email}' id="email" placeholder="Mobile number or email address" />
       </div>
       <div class="row">
         <input type="password" value='${password}' id="password" placeholder="New password" />
